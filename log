@@ -2,3 +2,13 @@ Thu 05 Oct 2023 01:31:07 AM UTC:
  tests:  0|5
 total_score: 0/70
 5a37541
+Thu 05 Oct 2023 04:51:15 AM UTC: 
+ sudoku.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+In file included from test.c:5:
+sudoku.c: In function ‘get_adj_nodes’:
+sudoku.c:55:9: error: invalid use of incomplete typedef ‘List’
+   55 |     list->head = NULL;
+      |         ^~
+Compilation failed
+35acbcd
