@@ -43,35 +43,74 @@ void print_node(Node* n){
     printf("\n");
 }
 
-int is_valid(Node* n){
+int is_valid(Node* n)
+{
+  int row_check[9][10] = {0}; // 9 filas, 10 números
+  int col_check[9][10] = {0}; // 9 columnas, 10 números
+  int submatrix_check[9][10] = {0}; // 9 submatrices de 3x3, 10 números
 
-    return 1;
+  for (int i = 0; i < 9; i++) 
+  {
+    for (int j = 0; j < 9; j++) 
+    {
+      int num = n->sudo[i][j];
+      // Verificar si el número ya ha aparecido en la fila
+      if (row_check[i][num] == 1) 
+      {
+        return 0;
+      }
+      // Verificar si el número ya ha aparecido en la columna
+      if (col_check[j][num] == 1) 
+      {
+        return 0; 
+      }
+        // Verificar si el número ya ha aparecido en la submatriz
+      int submatrix_index = 3 * (i / 3) + (j / 3);
+      if (submatrix_check[submatrix_index][num] == 1) 
+      {
+        return 0; 
+      }
+
+    
+      row_check[i][num] = 1;
+      col_check[j][num] = 1;
+      submatrix_check[submatrix_index][num] = 1;
+      }
+    }
+
+  return 1; 
 }
+
 
 
 List* get_adj_nodes(Node* n)
 {
   List* list = createList();
   int row = -1, col = -1;
-    for (int i = 0; i < 9; i++) {
-        for (int j = 0; j < 9; j++) {
-            if (n->sudo[i][j] == 0) {
+    for (int i = 0; i < 9; i++) 
+    {
+        for (int j = 0; j < 9; j++) 
+        {
+            if (n->sudo[i][j] == 0) 
+            {
                 row = i;
                 col = j;
                 break;
             }
         }
-        if (row != -1) {
+        if (row != -1) 
+        {
             break;
         }
     }
 
-    if (row == -1 || col == -1) {
-        
+    if (row == -1 || col == -1) 
+    {
         return list;
     }
 
-  for (int num = 1; num <= 9; num++) {
+  for (int num = 1; num <= 9; num++) 
+  {
         Node* new_node = copy(n);
         new_node->sudo[row][col] = num;
         pushBack(list, new_node); 
@@ -82,7 +121,8 @@ List* get_adj_nodes(Node* n)
 }
 
 
-int is_final(Node* n){
+int is_final(Node* n)
+{
     return 0;
 }
 
