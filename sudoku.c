@@ -45,40 +45,63 @@ void print_node(Node* n){
 
 int is_valid(Node* n)
 {
-  int row_check[9][10] = {0}; // 9 filas, 10 números
-  int col_check[9][10] = {0}; // 9 columnas, 10 números
-  int submatrix_check[9][10] = {0}; // 9 submatrices de 3x3, 10 números
-
+  int usado[10] = {0};
   for (int i = 0; i < 9; i++) 
   {
-    for (int j = 0; j < 9; j++) 
-    {
-      int num = n->sudo[i][j];
-      // Verificar si el número ya ha aparecido en la fila
-      if (num != 0 && row_check[i][num] == 1 
-      {
-        return 0;
-      }
-      // Verificar si el número ya ha aparecido en la columna
-      if (num != 0 && col_check[j][num] == 1) 
-      {
-        return 0; 
-      }
-        // Verificar si el número ya ha aparecido en la submatriz
-      int submatrix_index = 3 * (i / 3) + (j / 3);
-      if (num != 0 && submatrix_check[submatrix_index][num] == 1) 
-      {
-        return 0; 
-      }
-
-    
-      row_check[i][num] = 1;
-      col_check[j][num] = 1;
-      submatrix_check[submatrix_index][num] = 1;
-      }
+        for (int k = 0; k < 10; k++) 
+        {
+            usado[k] = 0;
+        }
+        for (int j = 0; j < 9; j++) 
+        {
+            int num = n->sudo[i][j];
+            if (num != 0 && usado[num] == 1) 
+            {
+                return 0;
+            }
+            usado[num] = 1;
+        }
     }
 
-  return 1; 
+    for (int j = 0; j < 9; j++) {
+        for (int k = 0; k < 10; k++) 
+        {
+            usado[k] = 0;
+        }
+        for (int i = 0; i < 9; i++) {
+            int num = n->sudo[i][j];
+            if (num != 0 && usado[num] == 1) 
+            {
+                return 0;
+            }
+            usado[num] = 1;
+        }
+    }
+
+    for (int ai = 0; ai < 3; ai++) 
+    {
+        for (int aj = 0; aj < 3; aj++) 
+        {
+          for (int k = 0; k < 10; k++) 
+            {
+              usado[k] = 0;
+            }
+            for (int i = ai*3; i < ai*3+3; i++) 
+            {
+                for (int j = aj*3; j < aj*3+3; j++) 
+                {
+                    int numero = n->sudo[i][j];
+                    if (numero != 0 && usado[numero] == 1) 
+                    {
+                        return 0;
+                    }
+                    usado[numero] = 1;
+                }
+            }
+        }
+    }
+
+    return 1;
 }
 
 

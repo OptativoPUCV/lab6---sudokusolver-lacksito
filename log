@@ -81,3 +81,9 @@ sudoku.c:49:7: error: unused variable ‘col_check’ [-Werror=unused-variable]
 cc1: all warnings being treated as errors
 Compilation failed
 9c4c3a9
+Fri 06 Oct 2023 11:47:26 PM UTC: 
+ sudoku.c | 55 +++++++++++++++++++++++++++++++++++++++----------------
+ 1 file changed, 39 insertions(+), 16 deletions(-)
+ tests:  5|3
+total_score: 35/70
+c9db70f
