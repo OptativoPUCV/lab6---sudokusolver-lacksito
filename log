@@ -46,3 +46,9 @@ sudoku.c:77:9: error: implicit declaration of function ‘insertEnd’ [-Werror=
 cc1: all warnings being treated as errors
 Compilation failed
 354b507
+Fri 06 Oct 2023 11:31:47 PM UTC: 
+ sudoku.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  2|4
+total_score: 15/70
+3890ddb
