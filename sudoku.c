@@ -45,55 +45,65 @@ void print_node(Node* n){
 
 int is_valid(Node* n)
 {
-    int usado[10] = {0}; // Inicializa el arreglo 'usado' una vez
-    int num;
+  int usado[10] = {0}; //
+  int numero;
 
-    // Verificar filas, columnas y submatrices
-    for (int i = 0; i < 9; i++) {
-        // Verificar fila
-        for (int k = 1; k <= 9; k++) {
-            usado[k] = 0; // Restablece el arreglo 'usado'
+  
+  for (int i = 0; i < 9; i++) 
+  {
+    for (int k = 1; k <= 9; k++) 
+    {
+      usado[k] = 0;
+    }
+    for (int j = 0; j < 9; j++) 
+    {
+      numero = n->sudo[i][j];
+      if (numero != 0 && usado[numero] == 1) 
+      {
+        return 0;
+      }
+      usado[numero] = 1;
+      }
+    
+      for (int k = 1; k <= 9; k++) 
+      {
+        usado[k] = 0; 
+      }
+      for (int j = 0; j < 9; j++) 
+      {
+        numero = n->sudo[j][i];
+        if (numero != 0 && usado[numero] == 1) 
+        {
+          return 0;
         }
-        for (int j = 0; j < 9; j++) {
-            num = n->sudo[i][j];
-            if (num != 0 && usado[num] == 1) {
-                return 0;
-            }
-            usado[num] = 1;
-        }
-
-        // Verificar columna
-        for (int k = 1; k <= 9; k++) {
-            usado[k] = 0; // Restablece el arreglo 'usado'
-        }
-        for (int j = 0; j < 9; j++) {
-            num = n->sudo[j][i];
-            if (num != 0 && usado[num] == 1) {
-                return 0;
-            }
-            usado[num] = 1;
+          usado[numero] = 1;
         }
     }
 
-    // Verificar submatrices
-    for (int ai = 0; ai < 3; ai++) {
-        for (int aj = 0; aj < 3; aj++) {
-            for (int k = 1; k <= 9; k++) {
-                usado[k] = 0; // Restablece el arreglo 'usado'
-            }
-            for (int i = ai * 3; i < ai * 3 + 3; i++) {
-                for (int j = aj * 3; j < aj * 3 + 3; j++) {
-                    num = n->sudo[i][j];
-                    if (num != 0 && usado[num] == 1) {
-                        return 0;
-                    }
-                    usado[num] = 1;
-                }
-            }
+  // Verificar submatrices
+  for (int ai = 0; ai < 3; ai++) 
+  {
+      for (int aj = 0; aj < 3; aj++) 
+    {
+      for (int k = 1; k <= 9; k++) 
+      {
+        usado[k] = 0; 
+      }
+      for (int i = ai * 3; i < ai * 3 + 3; i++) 
+      {
+        for (int j = aj * 3; j < aj * 3 + 3; j++) 
+        {
+          numero = n->sudo[i][j];
+          if (numero != 0 && usado[numero] == 1) 
+          {
+            return 0;
+          }
+          usado[numero] = 1;
         }
+      }
     }
-
-    return 1;
+  }
+  return 1;
 }
 
 
