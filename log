@@ -87,3 +87,12 @@ Fri 06 Oct 2023 11:47:26 PM UTC:
  tests:  5|3
 total_score: 35/70
 c9db70f
+Fri 06 Oct 2023 11:48:58 PM UTC: 
+ sudoku.c | 63 ++++++++++++++++++++++++++++-----------------------------------
+ 1 file changed, 28 insertions(+), 35 deletions(-)
+In file included from test.c:5:
+sudoku.c:98:1: error: expected identifier or ‘(’ before ‘}’ token
+   98 | }
+      | ^
+Compilation failed
+40106b0
