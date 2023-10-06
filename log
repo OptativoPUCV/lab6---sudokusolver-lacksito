@@ -58,3 +58,26 @@ Fri 06 Oct 2023 11:37:55 PM UTC:
  tests:  2|4
 total_score: 15/70
 ae2ec4c
+Fri 06 Oct 2023 11:39:36 PM UTC: 
+ sudoku.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘is_valid’:
+sudoku.c:58:45: error: expected ‘)’ before ‘{’ token
+   58 |       if (num != 0 && row_check[i][num] == 1
+      |          ~                                  ^
+      |                                             )
+   59 |       {
+      |       ~                                      
+sudoku.c:78:7: error: expected expression before ‘}’ token
+   78 |       }
+      |       ^
+sudoku.c:50:7: error: unused variable ‘submatrix_check’ [-Werror=unused-variable]
+   50 |   int submatrix_check[9][10] = {0}; // 9 submatrices de 3x3, 10 números
+      |       ^~~~~~~~~~~~~~~
+sudoku.c:49:7: error: unused variable ‘col_check’ [-Werror=unused-variable]
+   49 |   int col_check[9][10] = {0}; // 9 columnas, 10 números
+      |       ^~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+9c4c3a9

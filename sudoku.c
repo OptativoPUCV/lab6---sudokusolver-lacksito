@@ -55,18 +55,18 @@ int is_valid(Node* n)
     {
       int num = n->sudo[i][j];
       // Verificar si el número ya ha aparecido en la fila
-      if (row_check[i][num] == 1) 
+      if (num != 0 && row_check[i][num] == 1 
       {
         return 0;
       }
       // Verificar si el número ya ha aparecido en la columna
-      if (col_check[j][num] == 1) 
+      if (num != 0 && col_check[j][num] == 1) 
       {
         return 0; 
       }
         // Verificar si el número ya ha aparecido en la submatriz
       int submatrix_index = 3 * (i / 3) + (j / 3);
-      if (submatrix_check[submatrix_index][num] == 1) 
+      if (num != 0 && submatrix_check[submatrix_index][num] == 1) 
       {
         return 0; 
       }
