@@ -35,3 +35,14 @@ Fri 06 Oct 2023 11:29:30 PM UTC:
  tests:  0|5
 total_score: 0/70
 1447f1d
+Fri 06 Oct 2023 11:30:12 PM UTC: 
+ sudoku.c | 25 +++++++++++++++++++++++++
+ 1 file changed, 25 insertions(+)
+In file included from test.c:5:
+sudoku.c: In function ‘get_adj_nodes’:
+sudoku.c:77:9: error: implicit declaration of function ‘insertEnd’ [-Werror=implicit-function-declaration]
+   77 |         insertEnd(list, new_node);
+      |         ^~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+354b507
