@@ -12,3 +12,20 @@ sudoku.c:55:9: error: invalid use of incomplete typedef ‘List’
       |         ^~
 Compilation failed
 35acbcd
+Fri 06 Oct 2023 11:29:09 PM UTC: 
+ sudoku.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘get_adj_nodes’:
+sudoku.c:55:3: error: expected ‘,’ or ‘;’ before ‘return’
+   55 |   return list;
+      |   ^~~~~~
+sudoku.c:54:9: error: unused variable ‘list’ [-Werror=unused-variable]
+   54 |   List* list = createList()
+      |         ^~~~
+sudoku.c:57:1: error: control reaches end of non-void function [-Werror=return-type]
+   57 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+e745afb
