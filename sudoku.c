@@ -149,7 +149,7 @@ int is_final(Node* n)
         {
           if(n->sudo[i][j])
           {
-            return 0;
+            return 1;
           }
         }
     }
