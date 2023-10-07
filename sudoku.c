@@ -152,7 +152,7 @@ int is_final(Node* n)
         return 1; 
       }
     }
-   return 1; 
+   return 0; 
   }
 }
 
