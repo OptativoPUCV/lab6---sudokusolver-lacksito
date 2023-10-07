@@ -143,6 +143,16 @@ List* get_adj_nodes(Node* n)
 
 int is_final(Node* n)
 {
+  for(int i = 0; i < 9; i++)
+    {
+      for(int j = 0; j < 9; j++)
+        {
+          if(n->sudo[i][j])
+          {
+            return 0;
+          }
+        }
+    }
   return 1;
 }
 
